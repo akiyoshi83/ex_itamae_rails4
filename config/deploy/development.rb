@@ -6,7 +6,7 @@
 # server 'example.com', user: 'deploy', roles: %w{app db web}, my_property: :my_value
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
-server '172.30.1.10', user: 'app', roles: %w[app web db]
+server '172.30.1.10', user: 'vagrant', roles: %w[app web db]
 
 
 
@@ -60,3 +60,10 @@ server '172.30.1.10', user: 'app', roles: %w[app web db]
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+
+set :ssh_options, {
+  keys: [File.expand_path('YOUR_VM_KEY_PATH')],
+  forward_agent: true,
+  auth_methods: %w(publickey)
+}
+

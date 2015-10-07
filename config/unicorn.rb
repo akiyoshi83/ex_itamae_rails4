@@ -2,8 +2,8 @@
 
 APP_ROOT = "/var/apps/ex_itamae_rails4/current"
 APP_NAME = "ex_itamae_rails4"
-TMP_DIR = "/tmp"
-SOCK_PATH = "#{TMP_DIR}/#{APP_NAME}-unicorn.sock"
+TMP_DIR = "#{APP_ROOT}/tmp"
+SOCK_PATH = "#{TMP_DIR}/sockets/#{APP_NAME}-unicorn.sock"
 
 worker_processes Integer(ENV["UNICORN_PROCESSES"] || 2)
 working_directory APP_ROOT
